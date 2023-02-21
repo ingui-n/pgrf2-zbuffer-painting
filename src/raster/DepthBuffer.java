@@ -37,7 +37,7 @@ public class DepthBuffer implements Raster<Double> {
 
     @Override
     public Double getElement(int x, int y) throws ArrayIndexOutOfBoundsException {
-        if (isCoordinatesValid(x, y)) {
+        if (isInside(x, y)) {
             return buffer[x][y];
         }
         return null;
@@ -45,15 +45,7 @@ public class DepthBuffer implements Raster<Double> {
 
     @Override
     public void setElement(int x, int y, Double element) throws ArrayIndexOutOfBoundsException {
-        if (isCoordinatesValid(x, y)) 
+        if (isInside(x, y))
             buffer[x][y] = element;
-    }
-
-    public boolean isCoordinatesValid(int x, int y) {
-        if (x >= 0 && x < buffer.length) {
-            return y >= 0 && y < buffer.length;
-        }
-
-        return false;
     }
 }

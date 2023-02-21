@@ -26,14 +26,14 @@ public class ImageBuffer implements Raster<Col> {
 
     @Override
     public Col getElement(int x, int y) throws ArrayIndexOutOfBoundsException {
-        if (isCoordinatesValid(x, y))
+        if (isInside(x, y))
             return new Col(img.getRGB(x, y));
         return null;
     }
 
     @Override
     public void setElement(int x, int y, Col color) throws ArrayIndexOutOfBoundsException {
-        if (isCoordinatesValid(x, y))
+        if (isInside(x, y))
             img.setRGB(x, y, color.getRGB());
     }
 
@@ -58,13 +58,9 @@ public class ImageBuffer implements Raster<Col> {
     public int getHeight() {
         return img.getHeight();
     }
-    
-    public boolean isCoordinatesValid(int x, int y) {//todo 
-        if (x >= 0 && x < getWidth()) {
-            return y >= 0 && y < getHeight();
-        }
 
-        return false;
+    public Graphics getGraphics() {
+        return img.getGraphics();
     }
 }
 
