@@ -3,15 +3,15 @@ package raster;
 public interface Raster<E> {
     void clear();
 
-    void setClearElement(E element);
+    void setClearValue(E value);
 
     int getWidth();
 
     int getHeight();
 
-    E getElement(int x, int y);
+    E getValue(int x, int y);
 
-    void setElement(int x, int y, E element);
+    void setValue(int x, int y, E element);
     
     default boolean isInside(int x, int y) {
         if (x >= 0 && x < getWidth()) {

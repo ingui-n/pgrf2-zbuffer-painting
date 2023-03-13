@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 public class ImageBuffer implements Raster<Col> {
     private final BufferedImage img;
-    private Col color = new Col(0x000);
+    private Col color;
 
     public ImageBuffer(int width, int height) {
         img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -25,14 +25,14 @@ public class ImageBuffer implements Raster<Col> {
     }
 
     @Override
-    public Col getElement(int x, int y) throws ArrayIndexOutOfBoundsException {
+    public Col getValue(int x, int y) throws ArrayIndexOutOfBoundsException {
         if (isInside(x, y))
             return new Col(img.getRGB(x, y));
         return null;
     }
 
     @Override
-    public void setElement(int x, int y, Col color) throws ArrayIndexOutOfBoundsException {
+    public void setValue(int x, int y, Col color) throws ArrayIndexOutOfBoundsException {
         if (isInside(x, y))
             img.setRGB(x, y, color.getRGB());
     }
@@ -45,7 +45,7 @@ public class ImageBuffer implements Raster<Col> {
     }
 
     @Override
-    public void setClearElement(Col color) {
+    public void setClearValue(Col color) {
         this.color = color;
     }
 

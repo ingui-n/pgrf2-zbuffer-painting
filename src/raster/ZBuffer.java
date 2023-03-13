@@ -15,9 +15,9 @@ public class ZBuffer {
 
     public void drawWithZTest(int x, int y, Double z, Col color) {
         if (depthBuffer.isInside(x, y)) {
-            if (depthBuffer.getElement(x, y) < z) {
-                depthBuffer.setElement(x, y, z);
-                imageBuffer.setElement(x, y, color);
+            if (depthBuffer.getValue(x, y) < z) {
+                depthBuffer.setValue(x, y, z);
+                imageBuffer.setValue(x, y, color);
             }
         }
     }
