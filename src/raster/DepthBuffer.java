@@ -21,8 +21,8 @@ public class DepthBuffer implements Raster<Double> {
     }
 
     @Override
-    public void setClearValue(Double element) {
-        clearValue = element;
+    public void setClearValue(Double value) {
+        clearValue = value;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DepthBuffer implements Raster<Double> {
     }
 
     @Override
-    public Double getValue(int x, int y) throws ArrayIndexOutOfBoundsException {
+    public Double getValue(int x, int y) {
         if (isInside(x, y)) {
             return buffer[x][y];
         }
@@ -44,8 +44,8 @@ public class DepthBuffer implements Raster<Double> {
     }
 
     @Override
-    public void setValue(int x, int y, Double element) throws ArrayIndexOutOfBoundsException {
+    public void setValue(int x, int y, Double value) {
         if (isInside(x, y))
-            buffer[x][y] = element;
+            buffer[x][y] = value;
     }
 }

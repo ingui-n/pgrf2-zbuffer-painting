@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class Panel extends JPanel {
     public static final int WIDTH = 800, HEIGHT = 600;
-
     private ImageBuffer raster;
 
     public Panel() {

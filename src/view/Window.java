@@ -10,6 +10,7 @@ public class Window extends JFrame {
     public Window() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("UHK FIM PGRF2 task1");
+        setMinimumSize(new Dimension(500,500));
 
         panel = new Panel();
 
@@ -26,5 +27,4 @@ public class Window extends JFrame {
     public Panel getPanel() {
         return panel;
     }
-
 }
